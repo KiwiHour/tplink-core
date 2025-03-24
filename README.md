@@ -1,5 +1,5 @@
 # TP-Link core for C++
-I didn't exist, and now it does.
+I didn't exist (i think), and now it does.
 
 # Important note
 This is not pure C++. I'm using it for my ESP32 projects, so a little bit of the arduino library was used for HTTP requests.
