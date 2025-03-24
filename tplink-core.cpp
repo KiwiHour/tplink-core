@@ -296,6 +296,9 @@ public:
 		payload.shrink_to_fit();
 	}
 
+	/*
+	 * Generate the IV used for AES
+	 */
 	array<byte, 16> deriveAESIv()
 	{
 		array<byte, 16> AESIv;
@@ -309,7 +312,7 @@ public:
 
 	void incrementSequence()
 	{
-		sequence[3] += 1;
+		sequence[sequence.size() - 1] += 1;
 	}
 
 	/* Returns the sequence in INT32 big endian format */
