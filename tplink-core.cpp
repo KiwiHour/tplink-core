@@ -87,7 +87,7 @@ public:
 		return string(response.begin(), response.end());
 	}
 
-	// private:
+private:
 	// Handshake bytes
 	array<byte, 16> localSeed;
 	array<byte, 16> remoteSeed;
