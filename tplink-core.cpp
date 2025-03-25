@@ -22,6 +22,7 @@ class TPLinkCore
 public:
 	// Init attributes
 	string deviceIP;		 // Local IPv4 of your device
+	int cookieTimeout_s;	 // How long the cookie will last from the handshake (in seconds)
 	Credentials credentials; // TP-Link account credentials
 
 	/*  0 Success
@@ -31,8 +32,6 @@ public:
 	 */
 	int handshake()
 	{
-		// TODO: Do another handshake when timeout is completed (1 day)
-
 		int connectionStatus = checkConnection();
 		if (connectionStatus == EXIT_FAILURE)
 			return -1;
@@ -202,6 +201,7 @@ private:
 		// Get the session cookie
 		string cookies = http.header("Set-Cookie").c_str();
 		sessionCookie = cookies.substr(0, cookies.find(";"));
+		cookieTimeout_s = atoi(cookies.substr(cookies.find(";") + 9, cookies.size()).c_str()); // "+9 is for the length of the ;TIMEOUT="
 
 		// Dole out response bytes into correct arrays
 		std::copy(responseBytes.begin(), responseBytes.begin() + 16, remoteSeed.begin());
