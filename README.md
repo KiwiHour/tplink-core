@@ -5,7 +5,7 @@ It didn't exist (i think), and now it does.
 This is not pure C++. I'm using it for my ESP32 projects, so a little bit of the arduino library was used for HTTP requests.
 You are welcome to fork it make it without arduino. \
 \
-Also, this is an *extremely* minimal implementation. There's no JSON parsing for responses, you'll have to handle that with your favorite JSON parser :)
+Also, this is an *extremely* minimal implementation. There's no JSON parsing for requests or responses, you'll have to handle that with your favorite JSON parser :)
 
 # How to use
 Firstly, make sure you have a `credentials.cpp` (or linked `credentials.o`) available with the TP-Link account details in according to the header file specification
